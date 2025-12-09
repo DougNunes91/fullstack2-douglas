@@ -1,19 +1,31 @@
-![Jtech Logo](http://www.jtech.com.br/wp-content/uploads/2015/06/logo.png)
+# TaskList API
 
-# jtech-tasklist
+API REST para gerenciamento de tarefas com autenticação JWT.
 
-## What is
+## 🚀 Tecnologias
 
-## Composite by
+- Java 21
+- Spring Boot 3.5.5
+- Spring Security
+- JWT
+- PostgreSQL
+- Gradle
 
-## Services
+## 📋 Pré-requisitos
 
-## Helper
+- Java 21+
+- PostgreSQL 16+
+- Gradle 8+
 
-## How to use
+## 🔧 Configuração
 
-## Sample
+1. Clone o repositório
+2. Configure o banco de dados PostgreSQL
+3. Ajuste as credenciais em `application-dev.yml`
+4. Execute: `./gradlew bootRun`
 
-## How to run
+A aplicação estará disponível em: `http://localhost:8080`
 
-## Points to improve
+## 🔐 Autenticação
+
+### Registro
