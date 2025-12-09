@@ -1,77 +1,31 @@
-# JTech TaskList - Backend
+# TaskList API
 
-API REST para gerenciamento de tarefas com autenticação JWT e arquitetura limpa.
+API REST para gerenciamento de tarefas com autenticação JWT.
 
 ## 🚀 Tecnologias
 
 - Java 21
 - Spring Boot 3.5.5
-- Spring Security + JWT
-- Spring Data JPA
-- PostgreSQL 16
-- Docker Compose
-- JUnit 5 + Mockito
+- Spring Security
+- JWT
+- PostgreSQL
+- Gradle
 
-## 📋 Funcionalidades
+## 📋 Pré-requisitos
 
-- ✅ Autenticação JWT (access + refresh tokens)
-- ✅ Registro e login de usuários
-- ✅ CRUD de tarefas com validação de propriedade
-- ✅ Múltiplas listas por usuário
-- ✅ Testes unitários
-- ✅ Tratamento global de exceções
-- ✅ Arquitetura com princípios SOLID
+- Java 21+
+- PostgreSQL 16+
+- Gradle 8+
 
-## 🛠️ Como Executar
+## 🔧 Configuração
 
-### Pré-requisitos
-- Java 21
-- Docker Desktop
+1. Clone o repositório
+2. Configure o banco de dados PostgreSQL
+3. Ajuste as credenciais em `application-dev.yml`
+4. Execute: `./gradlew bootRun`
 
-### Passos
+A aplicação estará disponível em: `http://localhost:8080`
 
-1. Inicie o PostgreSQL:
-```bash
-cd composer
-docker-compose up -d
-```
+## 🔐 Autenticação
 
-2. Execute a aplicação:
-```bash
-cd ..
-./gradlew bootRun
-```
-
-API disponível em: `http://localhost:8080`
-
-### Endpoints Principais
-
-**Autenticação:**
-- `POST /auth/register` - Cadastro
-- `POST /auth/login` - Login
-- `POST /auth/refresh` - Renovar token
-- `GET /auth/me` - Dados do usuário
-
-**Tarefas:**
-- `GET /tasks` - Listar tarefas
-- `POST /tasks` - Criar tarefa
-- `PUT /tasks/{id}` - Atualizar
-- `DELETE /tasks/{id}` - Remover
-- `PATCH /tasks/{id}/toggle` - Marcar como concluída
-
-## 🧪 Testes
-
-```bash
-./gradlew test
-```
-
-## 📚 Arquitetura
-
-O projeto segue Clean Architecture com separação em camadas:
-- **Controllers**: Recebem requisições HTTP
-- **Services**: Lógica de negócio
-- **Repositories**: Acesso a dados
-- **Entities**: Modelos JPA
-- **Domains**: Objetos de domínio
-
-Para mais detalhes, consulte o `IMPLEMENTATION.md` na raiz do projeto.
+### Registro
