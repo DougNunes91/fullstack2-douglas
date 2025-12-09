@@ -7,22 +7,25 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
     url: 
-      jdbc:postgresql://${DS_URL:localhost}:${DS_PORT:5432}/${DS_DATABASE:sansys_database}
+      jdbc:postgresql://${DS_URL:localhost}:${DS_PORT:5432}/${DS_DATABASE:tasklist_db}
     password: ${DS_PASS:postgres}
     username: ${DS_USER:postgres}
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: 'true'
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     generate-ddl: 'false'
+    properties:
+      hibernate:
+        format_sql: true
 management:
   endpoints:
     web:
       exposure:
         include: '*'
 server:
-  port: ${PORT:0}
+  port: ${PORT:8080}
   forward-headers-strategy: framework
 logging:
   level:
@@ -41,7 +44,13 @@ springdoc:
     path: /doc/tasklist/v1/api.html
 api:
   version: v1
-  description: Description here
+  description: JTech Tasklist Multi-user API
   url:
     homologation: http://${HOMOLOGATION_SERVER:172.30.1.24}:${HOMOLOGATION_PORT:8081}
     production: ${PRODUCTION_URI:http://${spring.application.name}.jtech.com.br}
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:jtech-tasklist-secret-key-for-jwt-token-generation-should-be-at-least-256-bits-long-change-in-production}
+  expiration: ${JWT_EXPIRATION:86400000} # 24 hours in milliseconds
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800000} # 7 days in milliseconds
